@@ -40,7 +40,7 @@
                         <td>
                             <div class="d-flex d-justify-content-center">
                                 <button class="btn btn-warning mr-3">EDITAR</button>
-                                <button class="btn btn-danger">EXCLUIR</button>
+                                <a href="/excluir?nome=${cidade.nome}&estado=${cidade.estado}" class="btn btn-danger">EXCLUIR</a>
                             </div>
                         </td>
                     </tr>
