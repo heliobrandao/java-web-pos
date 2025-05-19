@@ -33,26 +33,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>São Paulo</td>
-                    <td>SP</td>
-                    <td>
-                        <div class="d-flex d-justify-content-center">
-                            <button class="btn btn-warning mr-3">EDITAR</button>
-                            <button class="btn btn-danger">EXCLUIR</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Rio de Janeiro</td>
-                    <td>RJ</td>
-                    <td>
-                        <div class="d-flex d-justify-content-center">
-                            <button class="btn btn-warning mr-3">EDITAR</button>
-                            <button class="btn btn-danger">EXCLUIR</button>
-                        </div>
-                    </td>
-                </tr>
+                <#list cidades as cidade>
+                    <tr>
+                        <td>${cidade.nome}</td>
+                        <td>${cidade.estado}</td>
+                        <td>
+                            <div class="d-flex d-justify-content-center">
+                                <button class="btn btn-warning mr-3">EDITAR</button>
+                                <button class="btn btn-danger">EXCLUIR</button>
+                            </div>
+                        </td>
+                    </tr>
+                </#list>
             </tbody>
         </table>
     </div>
