@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.web.bind.annotation.RequestBody;
+import jakarta.validation.Valid;
 
 
 
@@ -30,9 +32,23 @@ public class CidadeController {
     }
 
     @PostMapping("/criar")
-    public String criar(Cidade cidade) {
+    public String criar(@Valid Cidade cidade, BindingResult validacao) {
         
-        cidades.add(cidade);
+        if (validacao.hasErrors()) {
+            validacao
+               .getFieldErrors()
+                .forEach(erro -> 
+                    System.out.println(
+                        String.format("O atributo %s emitiu a seguinte mensagem: %s",
+                        erro.getField(),
+                        erro.getDefaultMessage()
+                        )
+                    )
+                );
+        } else {
+            cidades.add(cidade);
+        }
+
         return "redirect:/";
     }   
 
