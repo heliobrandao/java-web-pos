@@ -32,19 +32,20 @@ public class CidadeController {
     }
 
     @PostMapping("/criar")
-    public String criar(@Valid Cidade cidade, BindingResult validacao) {
+    public String criar(@Valid Cidade cidade, BindingResult validacao, Model memoria){
         
         if (validacao.hasErrors()) {
             validacao
                .getFieldErrors()
                 .forEach(erro -> 
-                    System.out.println(
-                        String.format("O atributo %s emitiu a seguinte mensagem: %s",
+                    memoria.addAttribute(
                         erro.getField(),
-                        erro.getDefaultMessage()
-                        )
-                    )
-                );
+                        erro.getDefaultMessage())
+            
+                    );
+            memoria.addAttribute("listaCidades", cidades);
+
+            return "/crud";
         } else {
             cidades.add(cidade);
         }
