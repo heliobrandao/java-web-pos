@@ -26,11 +26,11 @@
         
             <div class="form-group">
                <label for="nome">Cidade:</label> 
-               <input value="${(cidadeAtual.nome)!}" name="nome" type="text" class="form-control" id="nome" placeholder="Informe o nome da cidade">
+               <input required value="${(cidadeAtual.nome)!}" name="nome" type="text" class="form-control" id="nome" placeholder="Informe o nome da cidade">
             </div>
             <div class="form-group">
                 <label for="estado">Estado:</label>
-                <input value="${(cidadeAtual.estado)!}" name="estado" type="text" class="form-control" id="estado" placeholder="Informe o estado ao qual a cidade pertence">
+                <input maxlength="2" required value="${(cidadeAtual.estado)!}" name="estado" type="text" class="form-control" id="estado" placeholder="Informe o estado ao qual a cidade pertence">
             </div>
 
         <#if cidadeAtual??>
