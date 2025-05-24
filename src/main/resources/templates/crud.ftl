@@ -27,7 +27,7 @@
             <div class="form-group">
                <label for="nome">Cidade:</label> 
                <input 
-                    value="${(cidadeAtual.nome)!}" 
+                    value="${(cidadeAtual.nome)!}${nomeInformado!}" 
                     name="nome" 
                     type="text" 
                     class="form-control ${(nome??)?then('is-invalid', '')}" 
@@ -42,7 +42,7 @@
             <div class="form-group">
                 <label for="estado">Estado:</label>
                 <input 
-                    value="${(cidadeAtual.estado)!}" 
+                    value="${(cidadeAtual.estado)!}${estadoInformado!}" 
                     name="estado" 
                     type="text" 
                     class="form-control ${(estado??)?then('is-invalid', '')}" 
