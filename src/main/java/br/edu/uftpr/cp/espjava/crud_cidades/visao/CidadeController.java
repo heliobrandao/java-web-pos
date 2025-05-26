@@ -59,11 +59,7 @@ public class CidadeController {
 
             return "/crud";
         } else {
-            var novaCidade = new CidadeEntidade();
-            novaCidade.setNome(cidade.getNome());
-            novaCidade.setEstado(cidade.getEstado());
-
-            repository.save(novaCidade);
+            repository.save(cidade.clonar());
         }
 
         return "redirect:/";

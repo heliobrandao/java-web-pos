@@ -26,4 +26,19 @@ public final class Cidade {
         return estado;
     }
 
+
+    public CidadeEntidade clonar() {
+        var cidadeEntidade = new CidadeEntidade();
+
+        cidadeEntidade.setNome(this.getNome());
+        cidadeEntidade.setEstado(this.getEstado());
+
+        return cidadeEntidade;
+    }
+
+    public static Cidade clonar(CidadeEntidade cidade) {
+
+        return new Cidade(cidade.getNome(), cidade.getEstado());
+    }
+
 }
