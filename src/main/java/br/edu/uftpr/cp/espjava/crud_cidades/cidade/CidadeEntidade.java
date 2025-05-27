@@ -1,4 +1,4 @@
-package br.edu.uftpr.cp.espjava.crud_cidades.visao;
+package br.edu.uftpr.cp.espjava.crud_cidades.cidade;
 
 import java.io.Serializable;
 

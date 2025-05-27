@@ -1,4 +1,4 @@
-package br.edu.uftpr.cp.espjava.crud_cidades.visao;
+package br.edu.uftpr.cp.espjava.crud_cidades.cidade;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
