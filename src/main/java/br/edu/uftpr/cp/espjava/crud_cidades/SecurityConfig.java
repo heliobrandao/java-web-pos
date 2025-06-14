@@ -33,7 +33,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filter(HttpSecurity http) throws Exception {
+    protected SecurityFilterChain filter(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(
                     auth -> {
@@ -42,9 +42,11 @@ public class SecurityConfig {
                         auth.anyRequest().denyAll();
                     }
                 ).csrf(AbstractHttpConfigurer::disable)
-                .formLogin(Customizer.withDefaults())
+                .formLogin(
+                    form -> form.loginPage("/login.html").permitAll()
+                )
+                .logout(logout -> logout.permitAll())
                 .build();
-
     }
 
     @Bean
