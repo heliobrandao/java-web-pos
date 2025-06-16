@@ -2,6 +2,7 @@ package br.edu.uftpr.cp.espjava.crud_cidades;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -36,6 +37,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @EventListener(InteractiveAuthenticationSuccessEvent.class)
     public void printUsuarioAtual(InteractiveAuthenticationSuccessEvent event) {
         var usuario = event.getAuthentication().getName();
         System.out.println(usuario);
